@@ -36,6 +36,14 @@ const ProjectStorage = {
         this.save(projectObj);
     },
 
+    deleteTodoFromProject: function (todoId, projectId) {
+        const projects = this.getAll();
+        const project = projects.find(p => p.id === projectId);
+
+        project.todos = project.todos.filter(t => t.id !== todoId);
+        this.save(project);
+    },
+    
     clearProjects: function () {
         localStorage.removeItem("projects");
     }

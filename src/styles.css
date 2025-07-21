@@ -130,7 +130,7 @@ dialog[open] {
     gap: 5px;
 }
 
-.dialog-content button, #close-details {
+.dialog-content button, #close-details, #delete-todo {
     height: 40px;
     border: 0;
     cursor: pointer;
@@ -181,6 +181,11 @@ dialog[open] {
 #close-details {
     width: 150px;
     background-color: #007bff;
+}
+
+#delete-todo {
+    width: 150px;
+    background-color: #dc3545;
 }
 
 .project-card, .todo-card {

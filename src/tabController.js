@@ -66,11 +66,13 @@ const SelectedTodoDetails = function (todoId) {
     const description = document.getElementById("details-description");
     const dueDate = document.getElementById("details-due-date");
     const priority = document.getElementById("details-priority");
+    const deleteButton = document.getElementById("delete-todo");
 
     title.innerText = "Title: " + todoObj.title;
     description.innerText = "Description: " + todoObj.description;
     dueDate.innerText = "Due Date: " + todoObj.dueDate;
     priority.innerText = "Priority: " + todoObj.priority;
+    deleteButton.dataset.id = todoId;
 
 }
 

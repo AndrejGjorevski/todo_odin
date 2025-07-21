@@ -23,13 +23,6 @@ const addTodoButton = document.getElementById("add-todo-btn");
 
 allProjectsButton.addEventListener("click", function () {
     AllProjectsPage();
-    const projectCards = document.getElementsByClassName("project-card");
-
-    for (const projectCard of projectCards) {
-        projectCard.addEventListener("click", function () {
-            SelectedProjectPage(this.dataset.id);
-        });
-    }
 });
 
 allTodosButton.addEventListener("click", function () {
@@ -84,7 +77,7 @@ addTodoButton.addEventListener("click", function () {
     const priority = document.getElementById("todo-priority").value;
     const project = document.getElementById("todo-project").value;
 
-    const todoObj = new todo(title, description, dueDate, priority);
+    const todoObj = new todo(title, description, dueDate, priority, project);
     TodoStorage.save(todoObj);
 
     ProjectStorage.addTodoToProject(todoObj.id, project);
@@ -114,4 +107,24 @@ grid.addEventListener("click", (event) => {
 const closeDetails = document.getElementById("close-details");
 closeDetails.addEventListener("click", function () {
     document.getElementById("detailed-todo").close();
-})
+});
+
+const deleteTodo = document.getElementById("delete-todo");
+deleteTodo.addEventListener("click", function () {
+    const todoId = this.dataset.id;
+
+    // Find the project that contains this todo
+    const allProjects = ProjectStorage.getAll();
+    const project = allProjects.find(p => 
+        p.todos && p.todos.some(t => t.id === todoId)
+    );
+
+    TodoStorage.delete(todoId);
+
+    if (project) {
+        ProjectStorage.deleteTodoFromProject(todoId, project.id);
+    }
+
+    document.getElementById("detailed-todo").close();
+    location.reload();
+});

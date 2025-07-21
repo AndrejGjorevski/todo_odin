@@ -1,3 +1,5 @@
+import { ProjectStorage } from "./projectStorage";
+
 const TodoStorage = {
     getAll: function () {
         const raw = localStorage.getItem('todos');
@@ -26,7 +28,7 @@ const TodoStorage = {
         localStorage.setItem('todos', JSON.stringify(todos));
     },
 
-    clearTodos: function() {
+    clearTodos: function () {
         localStorage.removeItem("todos");
     }
 
