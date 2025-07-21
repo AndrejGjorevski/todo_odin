@@ -19,15 +19,17 @@
         <div id="project-options">
             <h3>Projects</h3>
             <div>
-                <button><img src="images/folder-plus.svg" alt="folder-plus">Create Project</button>
+                <button id="create-project-btn"><img src="images/folder-plus.svg" alt="folder-plus">Create
+                    Project</button>
                 <button id="all-projects-btn"><img src="images/folder.svg" alt="folder">All Projects</button>
             </div>
         </div>
         <div id="todo-options">
-            <h3>Todos</h3>
+            <h3>Tasks</h3>
             <div>
-                <button><img src="images/text-box-plus-outline.svg" alt="todo-plus">Create New Todo</button>
-                <button id="all-todos-btn"><img src="images/text-box-outline.svg" alt="list">All Todos</button>
+                <button id="create-todo-btn"><img src="images/text-box-plus-outline.svg" alt="todo-plus">Create New
+                    Task</button>
+                <button id="all-todos-btn"><img src="images/text-box-outline.svg" alt="list">All Tasks</button>
             </div>
         </div>
     </section>
@@ -36,6 +38,48 @@
         <div id="grid-container">
         </div>
     </section>
+    <dialog id="project-dialog">
+        <h2>Create Project</h2>
+        <div class="dialog-content">
+            <label for="project-title">Title</label>
+            <input type="text" id="project-title">
+            <label for="project-description">Description</label>
+            <input type="text" id="project-description">
+            <div>
+                <button id="add-project-btn">Create</button>
+                <button id="close-project-dialog">Close</button>
+            </div>
+        </div>
+    </dialog>
+    <dialog id="todo-dialog">
+        <h2>Create Task</h2>
+        <div class="dialog-content">
+            <div>
+            <label for="todo-title">Title</label>
+            <input type="text" id="todo-title">
+            </div>
+            <div>
+            <label for="todo-description">Description</label>
+            <input type="text" id="todo-description">
+            </div>
+            <div>
+            <label for="todo-due-date">Due Date</label>
+            <input type="date" id="todo-due-date">
+            </div>
+            <select id="todo-priority">Priority
+                <option value="urgent">Urgent</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="nonurgent">Nonurgent</option>
+            </select>
+            <select id="todo-project">
+                <option value="6dc8e15e-f834-4303-ab19-8aae53fadae3">Default Project</option>
+            </select>
+            <div>
+                <button id="add-todo-btn">Create</button>
+                <button id="close-todo-dialog">Close</button>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>
