@@ -44,7 +44,7 @@ const AllTodosPage = (function () {
     const storedTodos = TodoStorage.getAll();
 
     for (const todo of storedTodos) {
-        createTodoCard(todo.title, todo.description, todo.dueDate, todo.priority);
+        createTodoCard(todo.title, todo.dueDate, todo.priority);
     }
 });
 

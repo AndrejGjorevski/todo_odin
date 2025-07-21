@@ -26,7 +26,7 @@ function createTodoCard(title, dueDate, priority) {
     cardPriorityDiv.classList.add("priority-color");
 
     cardTitle.innerText = title;
-    cardDueDate.innerText = dueDate;
+    cardDueDate.innerText = "Due date: " + dueDate;
     cardPriorityDiv.style.backgroundColor = getPriorityColor(priority);
 
     cardDiv.appendChild(cardTitle);
