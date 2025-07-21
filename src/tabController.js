@@ -1,5 +1,5 @@
 import { createProjectCard, createTodoCard } from "./cardCreation";
-import { project } from "./model";
+import { project, todo } from "./model";
 import { ProjectStorage } from "./projectStorage";
 import { TodoStorage } from "./todoStorage";
 
@@ -60,4 +60,18 @@ const SelectedProjectPage = function (projectId) {
     }
 }
 
-export { InitialPage, AllProjectsPage, AllTodosPage, SelectedProjectPage }
+const SelectedTodoDetails = function (todoId) {
+    const todoObj = TodoStorage.getAll().find(t => t.id === todoId);
+    const title = document.getElementById("details-title");
+    const description = document.getElementById("details-description");
+    const dueDate = document.getElementById("details-due-date");
+    const priority = document.getElementById("details-priority");
+
+    title.innerText = "Title: " + todoObj.title;
+    description.innerText = "Description: " + todoObj.description;
+    dueDate.innerText = "Due Date: " + todoObj.dueDate;
+    priority.innerText = "Priority: " + todoObj.priority;
+
+}
+
+export { InitialPage, AllProjectsPage, AllTodosPage, SelectedProjectPage, SelectedTodoDetails }

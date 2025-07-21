@@ -1,5 +1,5 @@
 import "./styles.css";
-import { InitialPage, AllProjectsPage, AllTodosPage, SelectedProjectPage } from "./tabController";
+import { InitialPage, AllProjectsPage, AllTodosPage, SelectedProjectPage, SelectedTodoDetails } from "./tabController";
 import { ProjectStorage } from "./projectStorage";
 import { TodoStorage } from "./todoStorage";
 import { todo, project } from "./model";
@@ -27,7 +27,6 @@ allProjectsButton.addEventListener("click", function () {
 
     for (const projectCard of projectCards) {
         projectCard.addEventListener("click", function () {
-
             SelectedProjectPage(this.dataset.id);
         });
     }
@@ -98,3 +97,21 @@ addTodoButton.addEventListener("click", function () {
     document.getElementById("todo-dialog").close();
 });
 
+const grid = document.getElementById("grid-container");
+grid.addEventListener("click", (event) => {
+    const projectCard = event.target.closest(".project-card");
+    const todoCard = event.target.closest(".todo-card");
+
+    if (projectCard !== null) {
+        SelectedProjectPage(projectCard.dataset.id);
+    } else if (todoCard !== null) {
+        SelectedTodoDetails(todoCard.dataset.id);
+        document.getElementById("detailed-todo").showModal();
+    }
+});
+
+
+const closeDetails = document.getElementById("close-details");
+closeDetails.addEventListener("click", function () {
+    document.getElementById("detailed-todo").close();
+})

@@ -83,11 +83,11 @@ body {
 }
 
 .card-body {
-  flex: 1 1 auto;
-  padding: 1rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-title {
@@ -130,10 +130,14 @@ dialog[open] {
     gap: 5px;
 }
 
-.dialog-content button {
+.dialog-content button, #close-details {
     height: 40px;
     border: 0;
     cursor: pointer;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .dialog-content select {
@@ -144,23 +148,41 @@ dialog[open] {
 
 #add-todo-btn,
 #add-project-btn {
-    border-radius: 10px;
-    color: white;
     background-color: #007bff;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 #close-todo-dialog,
 #close-project-dialog {
-    border-radius: 10px;
-    color: white;
     background-color: #dc3545;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 .dialog-content button:hover {
     scale: 1.02;
     border: 1px solid black;
+}
+
+#detailed-todo {
+    padding: 2rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 600px;
+    height: 400px;
+}
+
+#details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+    height: 100%;
+}
+
+#close-details {
+    width: 150px;
+    background-color: #007bff;
+}
+
+.project-card, .todo-card {
+    cursor: pointer;
 }
