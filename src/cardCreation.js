@@ -11,7 +11,7 @@ function getPriorityColor(priority) {
     }
 }
 
-function createTodoCard(title, dueDate, priority) {
+function createTodoCard(title, dueDate, priority, id) {
     const cardGrid = document.getElementById("grid-container");
     const cardDiv = document.createElement("div");
     const cardTitle = document.createElement("h3");
@@ -20,6 +20,7 @@ function createTodoCard(title, dueDate, priority) {
     const cardPriorityDiv = document.createElement("div");
 
     cardDiv.classList.add("card");
+    cardDiv.classList.add("todo-card");
     cardTitle.classList.add("card-title");
     cardBodyDiv.classList.add("card-body");
     cardDueDate.classList.add("card-due-date");
@@ -28,6 +29,7 @@ function createTodoCard(title, dueDate, priority) {
     cardTitle.innerText = title;
     cardDueDate.innerText = "Due date: " + dueDate;
     cardPriorityDiv.style.backgroundColor = getPriorityColor(priority);
+    cardDiv.dataset.id = id;
 
     cardDiv.appendChild(cardTitle);
     cardBodyDiv.appendChild(cardDueDate);
@@ -37,7 +39,7 @@ function createTodoCard(title, dueDate, priority) {
     cardGrid.appendChild(cardDiv);
 }
 
-function createProjectCard(title, description, numTodo) {
+function createProjectCard(title, description, numTodo, id) {
     const cardGrid = document.getElementById("grid-container");
     const cardDiv = document.createElement("div");
     const cardTitle = document.createElement("div");
@@ -46,6 +48,7 @@ function createProjectCard(title, description, numTodo) {
     const cardTodoNumber = document.createElement("p");
 
     cardDiv.classList.add("card");
+    cardDiv.classList.add("project-card")
     cardTitle.classList.add("card-title");
     cardBodyDiv.classList.add("card-body");
     cardDescription.classList.add("card-description");
@@ -54,6 +57,7 @@ function createProjectCard(title, description, numTodo) {
     cardTitle.innerText = title;
     cardDescription.innerText = description;
     cardTodoNumber.innerText = "Tasks remaining: " + numTodo;
+    cardDiv.dataset.id = id;
 
     cardDiv.appendChild(cardTitle);
     cardBodyDiv.appendChild(cardDescription);
