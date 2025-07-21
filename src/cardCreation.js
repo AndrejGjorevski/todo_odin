@@ -46,6 +46,7 @@ function createProjectCard(title, description, numTodo, id) {
     const cardBodyDiv = document.createElement("div");
     const cardDescription = document.createElement("p");
     const cardTodoNumber = document.createElement("p");
+    const deleteButton = document.createElement("button");
 
     cardDiv.classList.add("card");
     cardDiv.classList.add("project-card")
@@ -53,15 +54,19 @@ function createProjectCard(title, description, numTodo, id) {
     cardBodyDiv.classList.add("card-body");
     cardDescription.classList.add("card-description");
     cardTodoNumber.classList.add("card-todo-number");
+    deleteButton.classList.add("delete-project-btn");
 
     cardTitle.innerText = title;
     cardDescription.innerText = description;
     cardTodoNumber.innerText = "Tasks remaining: " + numTodo;
     cardDiv.dataset.id = id;
+    deleteButton.dataset.id = id;
+    deleteButton.innerText = "Delete";
 
     cardDiv.appendChild(cardTitle);
     cardBodyDiv.appendChild(cardDescription);
     cardBodyDiv.appendChild(cardTodoNumber);
+    cardBodyDiv.appendChild(deleteButton);
     cardDiv.appendChild(cardBodyDiv);
 
     cardGrid.appendChild(cardDiv);

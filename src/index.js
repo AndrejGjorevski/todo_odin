@@ -94,6 +94,14 @@ const grid = document.getElementById("grid-container");
 grid.addEventListener("click", (event) => {
     const projectCard = event.target.closest(".project-card");
     const todoCard = event.target.closest(".todo-card");
+    const deleteProjectBtn = event.target.closest(".delete-project-btn")
+
+    if (deleteProjectBtn !== null) {
+        const projectId = deleteProjectBtn.dataset.id;
+        ProjectStorage.delete(projectId);
+        location.reload();
+        return;
+    }
 
     if (projectCard !== null) {
         SelectedProjectPage(projectCard.dataset.id);
@@ -113,9 +121,8 @@ const deleteTodo = document.getElementById("delete-todo");
 deleteTodo.addEventListener("click", function () {
     const todoId = this.dataset.id;
 
-    // Find the project that contains this todo
     const allProjects = ProjectStorage.getAll();
-    const project = allProjects.find(p => 
+    const project = allProjects.find(p =>
         p.todos && p.todos.some(t => t.id === todoId)
     );
 
@@ -128,3 +135,4 @@ deleteTodo.addEventListener("click", function () {
     document.getElementById("detailed-todo").close();
     location.reload();
 });
+
