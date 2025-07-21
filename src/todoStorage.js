@@ -5,7 +5,7 @@ const TodoStorage = {
         try {
             return JSON.parse(raw);
         } catch (e) {
-            console.error("Error parsing todos from local storage: " + e);
+            console.error("Error parsing todos from local storage: ", e);
             return [];
         }
     },
@@ -26,20 +26,8 @@ const TodoStorage = {
         localStorage.setItem('todos', JSON.stringify(todos));
     },
 
-    cleanNullTodos: function () {
-        const raw = localStorage.getItem('todos');
-        if (!raw) return; // Nothing to clean
-
-        try {
-            const todos = JSON.parse(raw);
-            if (!Array.isArray(todos)) return; // Unexpected data format
-
-            const cleaned = todos.filter(item => item !== null);
-
-            localStorage.setItem('todos', JSON.stringify(cleaned));
-        } catch (e) {
-            console.error('Failed to parse todos:', e);
-        }
+    clearTodos: function() {
+        localStorage.removeItem("todos");
     }
 
 }

@@ -6,4 +6,11 @@ function todo(title, description, dueDate, priority) {
     this.priority = priority;
 }
 
-export { todo };
+function project(title, description) {
+    this.id = crypto.randomUUID();
+    this.title = title;
+    this.description = description;
+    this.todos = [];
+}
+
+export { todo, project };
