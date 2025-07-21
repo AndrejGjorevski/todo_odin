@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+
+<body>
+    <section id="sidebar">
+        <h1>Todo App</h1>
+        <div id="todo-due-options">
+            <button><img src="images/star.svg" alt="favorite">Today</button>
+            <button><img src="images/calendar-blank.svg" alt="calendar">Upcoming</button>
+            <button><img src="images/list-status.svg" alt="list-status">Anytime</button>
+            <button><img src="images/archive.svg" alt="archive">Someday</button>
+        </div>
+        <div id="project-options">
+            <h3>Projects</h3>
+            <div>
+                <button><img src="images/folder-plus.svg" alt="folder-plus">Create Project</button>
+                <button>All Projects</button>
+            </div>
+        </div>
+        <div id="todo-options">
+            <h3>Todos</h3>
+            <div>
+                <button><img src="images/text-box-plus-outline.svg" alt="todo-plus">Create New Todo</button>
+                <button>All Todos</button>
+            </div>
+        </div>
+    </section>
+    <section id="main">
+        <h1>Current selection (project or todo list)</h1>
+        <div id="grid-container">
+            <div class="card">
+                <h3 class="card-title"></h3>
+                <div class="card-body">
+                    <p class="card-due-date">
+
+                    </p>
+                    <div class="priority-color"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
